@@ -1,4 +1,4 @@
-**Сапер**
+## Сапер
 
 ## Запуск проекта локально
 
@@ -16,5 +16,5 @@ npm run start
 
 ###
 
-- [Ссылка на страницу](https://aleksey-dev-crt.github.io/react-burger/)
+- [Ссылка на страницу](https://aleksey-dev-crt.github.io/sapper/)
 
