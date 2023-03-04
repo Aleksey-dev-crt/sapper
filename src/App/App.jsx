@@ -29,7 +29,6 @@ const App = () => {
 
 	useEffect(() => {
 		const flags = mask.flat().filter((el) => el === FLAG).length;
-		console.log(mask.flat().filter((el) => el === FLAG))
 		setBombsCounter(prev => lose.x ? prev : BOMBS - flags);
 	}, [mask, lose]);
 
