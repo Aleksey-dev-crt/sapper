@@ -130,6 +130,7 @@ const App = () => {
 					{bombsCounterArr.map((el, i) => (
 						<p className={AppStyles.indicator} key={i}>
 							{el}
+							<span className={AppStyles.indicatorPlaceholder}>8</span>
 						</p>
 					))}
 				</div>
@@ -140,6 +141,7 @@ const App = () => {
 					{timerArr.map((el, i) => (
 						<p key={i} className={AppStyles.indicator}>
 							{el}
+							<span className={AppStyles.indicatorPlaceholder}>8</span>
 						</p>
 					))}
 				</div>

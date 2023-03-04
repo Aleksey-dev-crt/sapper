@@ -24,12 +24,22 @@
 
 .indicator {
 	margin: 0;
-	background-color: red;
-	color: black;
-	font-family: '7LED';
+	background-color: black;
+	color: red;
+	font-family: 'DSEG7Classic';
 	font-size: 42px;
 	width: auto;
 	text-align: end;
+	position: relative;
+}
+
+.indicatorPlaceholder {
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: red;
+	opacity: .4;
+	;
 }
 
 .counterContainer {
