@@ -43,8 +43,8 @@ const App = () => {
 		}
 	}, [mask, bombsCounter]);
 
-	const bombsCounterArr = `${bombsCounter}`.padStart(3, '0').split('');
-	const timerArr = `${timer.time}`.padStart(4, '0').split('');
+	const bombsCounterArr = `${bombsCounter}`.padStart(3, '\u00A0').split('');
+	const timerArr = `${timer.time}`.padStart(4, '\u00A0').split('');
 
 	const onResetClick = () => {
 		stopTimer(setTimer);
@@ -73,7 +73,7 @@ const App = () => {
 		if (board[x][y] === BOMB) {
 			setLose({ x, y });
 			setSmile(LOSE);
-			stopTimer(setTimer);
+			if (timer.timerRun) stopTimer(setTimer);
 			board.forEach((row, i) =>
 				row.forEach((cell, j) => {
 					if (cell === BOMB && mask[i][j] !== FLAG) mask[i][j] = cell;
@@ -132,7 +132,6 @@ const App = () => {
 					{bombsCounterArr.map((el, i) => (
 						<p className={AppStyles.indicator} key={i}>
 							{el}
-							<span className={AppStyles.indicatorPlaceholder}>8</span>
 						</p>
 					))}
 				</div>
@@ -143,7 +142,6 @@ const App = () => {
 					{timerArr.map((el, i) => (
 						<p key={i} className={AppStyles.indicator}>
 							{el}
-							<span className={AppStyles.indicatorPlaceholder}>8</span>
 						</p>
 					))}
 				</div>

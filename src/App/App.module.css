@@ -28,18 +28,17 @@
 	color: red;
 	font-family: 'DSEG7Classic';
 	font-size: 42px;
-	width: auto;
-	text-align: end;
+	width: 32px;
 	position: relative;
 }
 
-.indicatorPlaceholder {
+.indicator:before {
+	content: '8';
 	position: absolute;
 	left: 0;
 	top: 0;
 	color: red;
-	opacity: .4;
-	;
+	opacity: 0.4;
 }
 
 .counterContainer {

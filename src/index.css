@@ -3,17 +3,17 @@
 }
 
 @font-face {
-	font-family: "DSEG7Classic";
-	src: url(./fonts/DSEG7Classic-Bold.woff) format("woff"),
-	  url(./fonts/DSEG7Classic-Bold.woff2) format("woff2");
+	font-family: 'DSEG7Classic';
+	src: url(./fonts/DSEG7Classic-Bold.woff) format('woff'),
+		url(./fonts/DSEG7Classic-Bold.woff2) format('woff2');
 	font-weight: 700;
 	font-style: bold;
-  }
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: linear-gradient(90deg, #ddf9ec, #198754, #ddf9ec);
