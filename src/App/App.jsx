@@ -121,7 +121,7 @@ const App = () => {
 		if (mask[x][y] && mask[x][y] !== FLAG && mask[x][y] !== QUESTION)
 			return cell;
 		if (mask[x][y] === FLAG || mask[x][y] === QUESTION) return mask[x][y];
-	};	
+	};
 
 	return (
 		<main className={AppStyles.container}>
@@ -137,7 +137,11 @@ const App = () => {
 					{smile}
 				</button>
 				<div className={AppStyles.timerContainer}>
-					{timerArr.map((el, i) => (<p key={i} className={AppStyles.indicator}>{el}</p>))}
+					{timerArr.map((el, i) => (
+						<p key={i} className={AppStyles.indicator}>
+							{el}
+						</p>
+					))}
 				</div>
 			</section>
 

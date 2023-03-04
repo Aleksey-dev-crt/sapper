@@ -1,64 +1,64 @@
 .container {
 	max-width: 398px;
 	border: 1px solid black;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);  
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .panel {
-    width: 100%;
-    height: 60px;
+	width: 100%;
+	height: 60px;
 	background-color: lightgray;
-    border-top: 6px solid #bdbdbd;
+	border-top: 6px solid #bdbdbd;
 	border-left: 6px solid #bdbdbd;
 	border-right: 6px solid #bdbdbd;
 	border-bottom: 3px solid #bdbdbd;
-    border-style: ridge;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
+	border-style: ridge;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	align-items: center;
 }
 
 .indicator {
-    margin: 0;
-    background-color: red;
-    color: black;
-    font-family: '7LED';
-    font-size: 42px;
-    width: auto;
-    text-align: end;
+	margin: 0;
+	background-color: red;
+	color: black;
+	font-family: '7LED';
+	font-size: 42px;
+	width: auto;
+	text-align: end;
 }
 
 .counterContainer {
-    display: flex;
-    min-width: 76px;
+	display: flex;
+	min-width: 76px;
 }
 
 .timerContainer {
-    display: flex;
-    min-width: 101px;
+	display: flex;
+	min-width: 101px;
 }
 
-.button {    
-    all: unset;
-    cursor: pointer;
-    font-size: 26px;
-    width: 36px;
-    height: 36px;
-    border: 3px solid #bdbdbd;
-    border-style: outset;
-    background-color: #bdbdbdf3;
-    text-align: center;
-    padding-bottom: 3px;
+.button {
+	all: unset;
+	cursor: pointer;
+	font-size: 26px;
+	width: 36px;
+	height: 36px;
+	border: 3px solid #bdbdbd;
+	border-style: outset;
+	background-color: #bdbdbdf3;
+	text-align: center;
+	padding-bottom: 3px;
 }
 
-.button:active { 
-    font-size: 25px;
-    background-color: #bdbdbdfb;
-    border-style: inset;
+.button:active {
+	font-size: 25px;
+	background-color: #bdbdbdfb;
+	border-style: inset;
 }
 
 .board {
@@ -67,7 +67,7 @@
 	border-left: 6px solid #bdbdbd;
 	border-right: 6px solid #bdbdbd;
 	border-bottom: 6px solid #bdbdbd;
-    border-style: ridge;
+	border-style: ridge;
 }
 
 .row {
@@ -93,19 +93,19 @@
 	left: -1px;
 	top: 1px;
 	width: 100%;
-	height: 2px;	
+	height: 2px;
 	background-color: red;
 	z-index: 1;
 }
 
 .cell:before {
 	transform-origin: left top;
-	transform: rotate(45deg) translate3d(4px, -2px, 0);	
+	transform: rotate(45deg) translate3d(4px, -2px, 0);
 }
 
 .cell:after {
 	transform-origin: left bottom;
-    transform: rotate(-45deg) translate3d(-8px, 14px, 0);
+	transform: rotate(-45deg) translate3d(-8px, 14px, 0);
 }
 
 .opened {
@@ -113,7 +113,7 @@
 }
 
 .lose {
-	background-color: red;	
+	background-color: red;
 }
 .cross.cell:before,
 .cross.cell:after {
@@ -121,37 +121,33 @@
 }
 
 .one {
-    color: blue
+	color: blue;
 }
 
 .two {
-    color: green
+	color: green;
 }
 
 .three {
-    color: red
+	color: red;
 }
 
 .four {
-    color: darkblue
+	color: darkblue;
 }
 
 .five {
-    color: brown
+	color: brown;
 }
 
 .six {
-    color: turquoise
+	color: turquoise;
 }
 
 .seven {
-    color: black
+	color: black;
 }
 
 .eight {
-    color: white
+	color: white;
 }
-
-
-
-

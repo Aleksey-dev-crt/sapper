@@ -62,16 +62,16 @@ export const openEmtyCells = (board, mask, x, y) => {
 let interval;
 
 export const stopTimer = (setTimer) => {
-    setTimer((prev) => ({...prev, timerRun: false }));
-    clearInterval(interval);
+	setTimer((prev) => ({ ...prev, timerRun: false }));
+	clearInterval(interval);
 };
 
 export const startTimer = (setTimer) => {
-    setTimer({timerRun: true, time: 0 });
-    let i = 0;
-    interval = setInterval(() => {
-        i++;
-        setTimer((prev) => ({ ...prev, time: i }));
-        if (i === TOTAL_TIME) stopTimer(setTimer);
-    }, 1000);
+	setTimer({ timerRun: true, time: 0 });
+	let i = 0;
+	interval = setInterval(() => {
+		i++;
+		setTimer((prev) => ({ ...prev, time: i }));
+		if (i === TOTAL_TIME) stopTimer(setTimer);
+	}, 1000);
 };
