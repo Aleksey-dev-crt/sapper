@@ -28,9 +28,9 @@ const App = () => {
 	const [win, setWin] = useState(false);
 
 	useEffect(() => {
-		const flags = mask.flat().filter((el) => el === FLAG).length;
-		setBombsCounter(flags <= BOMBS ? BOMBS - flags : 0);
-	}, [mask]);
+		const flags = mask.flat().filter((el) => el && el === FLAG).length;
+		setBombsCounter(prev => lose.x ? prev : BOMBS - flags);
+	}, [mask, lose]);
 
 	useEffect(() => {
 		const openedCells = mask
