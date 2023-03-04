@@ -29,7 +29,7 @@ const App = () => {
 
 	useEffect(() => {
 		const flags = mask.flat().filter((el) => el === FLAG).length;
-		setBombsCounter((prev) => (lose.x || lose.y ? prev : BOMBS - flags));
+		setBombsCounter((prev) => (lose.x !== null ? prev : BOMBS - flags));
 	}, [mask, lose]);
 
 	useEffect(() => {
@@ -57,17 +57,17 @@ const App = () => {
 	};
 
 	const onMouseUpHandler = (e, x, y) => {
-		if (e.button === 0 && !mask[x][y] && !lose.x && !lose.y && !win)
+		if (e.button === 0 && !mask[x][y] && lose.x === null && !win)
 			setSmile(PLAY);
 	};
 
 	const onMouseDownHandler = (e, x, y) => {
-		if (e.button === 0 && !mask[x][y] && !lose.x && !lose.y && !win)
+		if (e.button === 0 && !mask[x][y] && lose.x === null && !win)
 			setSmile(SHOCK);
 	};
 
 	const clickCellHandler = (x, y) => {
-		if (lose.x || lose.y || win) return;
+		if (lose.x !== null || win) return;
 		if (board[x][y] === BOMB && mask.flat().every((el) => !el)) return;
 		if (board[x][y] !== ' ' && board[x][y] !== BOMB) mask[x][y] = board[x][y];
 		if (board[x][y] === BOMB) {
@@ -88,7 +88,7 @@ const App = () => {
 
 	const rightClickHandler = (e, x, y) => {
 		e.preventDefault();
-		if (lose.x || lose.y || win) return;
+		if (lose.x !== null || win) return;
 		if (mask[x][y] && mask[x][y] !== FLAG && mask[x][y] !== QUESTION) return;
 		if (!mask[x][y] && bombsCounter) {
 			mask[x][y] = FLAG;
