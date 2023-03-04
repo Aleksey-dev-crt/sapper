@@ -13,7 +13,7 @@ import {
 import {
 	createBoard,
 	createMask,
-	openEmtyCells,
+	openEmptyCells,
 	stopTimer,
 	startTimer,
 } from '../utils';
@@ -82,7 +82,7 @@ const App = () => {
 			);
 		}
 		if (!timer.timerRun) startTimer(setTimer);
-		openEmtyCells(board, mask, x, y);
+		openEmptyCells(board, mask, x, y);
 		setMask((mask) => [...mask]);
 	};
 

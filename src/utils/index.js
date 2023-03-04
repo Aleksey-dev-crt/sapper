@@ -36,7 +36,7 @@ export const createBoard = () => {
 	return board.map((row) => row.map((cell) => (!cell ? ' ' : cell)));
 };
 
-export const openEmtyCells = (board, mask, x, y) => {
+export const openEmptyCells = (board, mask, x, y) => {
 	const empty = board[x][y] === ' ' ? [[x, y]] : [];
 
 	const addEmpty = (x, y) => {
