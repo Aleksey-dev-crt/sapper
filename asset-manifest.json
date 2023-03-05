@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/sapper/static/css/main.2a93a912.css",
-    "main.js": "/sapper/static/js/main.b2f6950f.js",
+    "main.css": "/sapper/static/css/main.2505356f.css",
+    "main.js": "/sapper/static/js/main.d4f22954.js",
     "static/js/787.2f7b59f1.chunk.js": "/sapper/static/js/787.2f7b59f1.chunk.js",
     "static/media/DSEG7Classic-Bold.woff": "/sapper/static/media/DSEG7Classic-Bold.aecd2208ff44cf4f7949.woff",
     "static/media/DSEG7Classic-Bold.woff2": "/sapper/static/media/DSEG7Classic-Bold.4dca6a7ccd2a657aa766.woff2",
     "index.html": "/sapper/index.html",
-    "main.2a93a912.css.map": "/sapper/static/css/main.2a93a912.css.map",
-    "main.b2f6950f.js.map": "/sapper/static/js/main.b2f6950f.js.map",
+    "main.2505356f.css.map": "/sapper/static/css/main.2505356f.css.map",
+    "main.d4f22954.js.map": "/sapper/static/js/main.d4f22954.js.map",
     "787.2f7b59f1.chunk.js.map": "/sapper/static/js/787.2f7b59f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a93a912.css",
-    "static/js/main.b2f6950f.js"
+    "static/css/main.2505356f.css",
+    "static/js/main.d4f22954.js"
   ]
 }
