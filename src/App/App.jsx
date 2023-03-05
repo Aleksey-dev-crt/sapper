@@ -73,7 +73,7 @@ const App = () => {
 		if (board[x][y] === BOMB) {
 			setLose({ x, y });
 			setSmile(LOSE);
-			if (timer.timerRun) stopTimer(setTimer);
+			stopTimer(setTimer);
 			board.forEach((row, i) =>
 				row.forEach((cell, j) => {
 					if (cell === BOMB && mask[i][j] !== FLAG) mask[i][j] = cell;
@@ -85,12 +85,13 @@ const App = () => {
 		openEmptyCells(board, mask, x, y);
 		setMask((mask) => [...mask]);
 	};
-
+	
 	const rightClickHandler = (e, x, y) => {
 		e.preventDefault();
 		if (lose.x !== null || win) return;
 		if (mask[x][y] && mask[x][y] !== FLAG && mask[x][y] !== QUESTION) return;
 		if (!mask[x][y] && bombsCounter) {
+			if (!timer.timerRun) startTimer(setTimer);
 			mask[x][y] = FLAG;
 		} else if (mask[x][y] === FLAG) {
 			mask[x][y] = QUESTION;
