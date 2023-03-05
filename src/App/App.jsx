@@ -128,7 +128,7 @@ const App = () => {
 	return (
 		<main className={AppStyles.container}>
 			<section className={AppStyles.panel}>
-				<div className={AppStyles.counterContainer}>
+				<div className={AppStyles.indicatorContainer}>
 					{bombsCounterArr.map((el, i) => (
 						<p className={AppStyles.indicator} key={i}>
 							{el}
@@ -138,7 +138,7 @@ const App = () => {
 				<button className={AppStyles.button} onClick={onResetClick}>
 					{smile}
 				</button>
-				<div className={AppStyles.timerContainer}>
+				<div className={AppStyles.indicatorContainer}>
 					{timerArr.map((el, i) => (
 						<p key={i} className={AppStyles.indicator}>
 							{el}
