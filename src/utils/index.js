@@ -1,4 +1,4 @@
-import { SIZE, BOMB, BOMBS, TOTAL_TIME } from './constants';
+import { SIZE, BOMB, BOMBS, TOTAL_TIME, FLAG } from './constants';
 
 export const createMask = (el) => {
 	return Array.from({ length: SIZE }, () =>
@@ -59,6 +59,15 @@ export const openEmptyCells = (board, mask, x, y) => {
 	return mask;
 };
 
+export const showBombsWhenLose = (board, mask) => {
+	board.forEach((row, i) =>
+		row.forEach((cell, j) => {
+			if (cell === BOMB && mask[i][j] !== FLAG) mask[i][j] = cell;
+			if (cell === BOMB && mask[i][j] === FLAG) mask[i][j] = 'minored';
+		})
+	);
+};
+
 let interval;
 
 export const stopTimer = (setTimer) => {
@@ -66,12 +75,12 @@ export const stopTimer = (setTimer) => {
 	clearInterval(interval);
 };
 
-export const startTimer = (setTimer) => {
+export const startTimer = (setTimer, setLose) => {
 	setTimer({ timerRun: true, time: 0 });
 	let i = 0;
 	interval = setInterval(() => {
 		i++;
 		setTimer((prev) => ({ ...prev, time: i }));
-		if (i === TOTAL_TIME) stopTimer(setTimer);
+		if (i === TOTAL_TIME) setLose((prev) => ({ ...prev, state: true }));
 	}, 1000);
 };

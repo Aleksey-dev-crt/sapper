@@ -14,6 +14,7 @@ import {
 	createBoard,
 	createMask,
 	openEmptyCells,
+	showBombsWhenLose,
 	stopTimer,
 	startTimer,
 } from '../utils';
@@ -23,13 +24,21 @@ const App = () => {
 	const [smile, setSmile] = useState(PLAY);
 	const [board, setBoard] = useState(() => createBoard());
 	const [mask, setMask] = useState(() => createMask(null));
-	const [lose, setLose] = useState({ x: null, y: null });
+	const [lose, setLose] = useState({ x: null, y: null, state: false });
 	const [bombsCounter, setBombsCounter] = useState(BOMBS);
 	const [win, setWin] = useState(false);
 
 	useEffect(() => {
+		if (lose.state) {
+			stopTimer(setTimer);
+			showBombsWhenLose(board, mask)
+			setSmile(LOSE)
+		} 
+	}, [lose, board, mask]);
+
+	useEffect(() => {
 		const flags = mask.flat().filter((el) => el === FLAG).length;
-		setBombsCounter((prev) => (lose.x !== null ? prev : BOMBS - flags));
+		setBombsCounter((prev) => (lose.state ? prev : BOMBS - flags));
 	}, [mask, lose]);
 
 	useEffect(() => {
@@ -52,46 +61,36 @@ const App = () => {
 		setSmile(PLAY);
 		setBoard(() => createBoard());
 		setMask(() => createMask(null));
-		setLose({ x: null, y: null });
+		setLose({ x: null, y: null, state: false });
 		setWin(false);
 	};
 
 	const onMouseUpHandler = (e, x, y) => {
-		if (e.button === 0 && !mask[x][y] && lose.x === null && !win)
+		if (e.button === 0 && !mask[x][y] && !lose.state && !win)
 			setSmile(PLAY);
 	};
 
 	const onMouseDownHandler = (e, x, y) => {
-		if (e.button === 0 && !mask[x][y] && lose.x === null && !win)
+		if (e.button === 0 && !mask[x][y] && !lose.state && !win)
 			setSmile(SHOCK);
 	};
 
 	const clickCellHandler = (x, y) => {
-		if (lose.x !== null || win) return;
+		if (lose.state || win) return;
 		if (board[x][y] === BOMB && mask.flat().every((el) => !el)) return;
 		if (board[x][y] !== ' ' && board[x][y] !== BOMB) mask[x][y] = board[x][y];
-		if (board[x][y] === BOMB) {
-			setLose({ x, y });
-			setSmile(LOSE);
-			stopTimer(setTimer);
-			board.forEach((row, i) =>
-				row.forEach((cell, j) => {
-					if (cell === BOMB && mask[i][j] !== FLAG) mask[i][j] = cell;
-					if (cell === BOMB && mask[i][j] === FLAG) mask[i][j] = 'minored';
-				})
-			);
-		}
-		if (!timer.timerRun) startTimer(setTimer);
+		if (board[x][y] === BOMB) setLose({ x, y, state: true });
+		if (!timer.timerRun) startTimer(setTimer, setLose);
 		openEmptyCells(board, mask, x, y);
 		setMask((mask) => [...mask]);
 	};
-	
+
 	const rightClickHandler = (e, x, y) => {
 		e.preventDefault();
-		if (lose.x !== null || win) return;
+		if (lose.state || win) return;
 		if (mask[x][y] && mask[x][y] !== FLAG && mask[x][y] !== QUESTION) return;
 		if (!mask[x][y] && bombsCounter) {
-			if (!timer.timerRun) startTimer(setTimer);
+			if (!timer.timerRun) startTimer(setTimer, setLose);
 			mask[x][y] = FLAG;
 		} else if (mask[x][y] === FLAG) {
 			mask[x][y] = QUESTION;
