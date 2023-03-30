@@ -76,7 +76,7 @@ const App = () => {
 	};
 
 	const clickCellHandler = (x, y) => {
-		if (lose.state || win) return;
+		if (lose.state || win || mask[x][y] === FLAG || mask[x][y] === QUESTION) return;
 		if (board[x][y] === BOMB && mask.flat().every((el) => !el)) return;
 		if (board[x][y] !== ' ' && board[x][y] !== BOMB) mask[x][y] = board[x][y];
 		if (board[x][y] === BOMB) setLose({ x, y, state: true });
