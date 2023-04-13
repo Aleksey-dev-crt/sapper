@@ -1,6 +1,6 @@
 export const SIZE = 16;
 export const BOMBS = 40;
-export const TOTAL_TIME = 2400;
+export const TOTAL_TIME = 900;
 export const BOMB = '💣';
 export const FLAG = '🚩';
 export const QUESTION = '❓';

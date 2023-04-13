@@ -53,7 +53,7 @@ const App = () => {
 	}, [mask, bombsCounter]);
 
 	const bombsCounterArr = `${bombsCounter}`.padStart(3, '\u00A0').split('');
-	const timerArr = `${timer.time}`.padStart(4, '\u00A0').split('');
+	const timerArr = `${timer.time}`.padStart(3, '\u00A0').split('');
 
 	const onResetClick = () => {
 		stopTimer(setTimer);
