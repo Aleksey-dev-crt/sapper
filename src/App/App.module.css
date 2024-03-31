@@ -20,6 +20,7 @@
 	justify-content: space-between;
 	padding: 0 10px;
 	align-items: center;
+	user-select: none;
 }
 
 .indicator {
@@ -70,6 +71,7 @@
 	border-right: 6px solid #bdbdbd;
 	border-bottom: 6px solid #bdbdbd;
 	border-style: ridge;
+	user-select: none;
 }
 
 .row {
